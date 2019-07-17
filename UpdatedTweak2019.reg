@@ -1,0 +1,881 @@
+Windows Registry Editor Version 5.00
+
+; ------- 1809 and beyond ---
+
+; Enable Dark Theme
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"AppsUseLightTheme"=dword:00000000
+
+
+; -----
+
+;Add creation of Batch .cmd
+[HKEY_CLASSES_ROOT\.cmd\ShellNew]
+"NullFile"=""
+
+;Disable Administrative Shares.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters]
+"AutoShareServer"=dword:00000000
+"AutoShareWks"=dword:00000000
+
+;Disable Autorun
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoDriveTypeAutoRun"=dword:000000ff
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=dword:00000000
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoDriveAutoRun"=hex:ff,ff,ff,03
+
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"EnableAutoTray"=dword:00000000
+
+[HKEY_USERS\.DEFAULT\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoDriveAutoRun"=hex:ff,ff,ff,03
+"NoDriveTypeAutoRun"=dword:000000ff
+
+; Disable Hide Drives With No Media
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"HideDrivesWithNoMedia"=dword:00000000
+
+;Disable Compatibility Manager
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\AppCompat]
+"DisablePCA"=dword:1
+
+[HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\AppCompat]
+"DisablePCA"=dword:1
+
+; Disable LLMNR (closes Port 5355)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient]
+"EnableMulticast"=dword:00000000
+
+; Disable grouping of system tray icons
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarGlomming"=dword:00000000
+
+; Disable Remote Registry
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RemoteRegistry]
+"Start"=dword:00000004
+
+; Disable Maintenance (not visible via GPEDIT.MSC)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance]
+"MaintenanceDisabled"=dword:00000001
+
+; Disables the ability to search via web from e.g. apps or Windows own software. 
+; Via gpedit.msc
+; Local Computer Policy > Computer Configuration > Administrative Templates > Windows Components > Search
+; Locate "Do not allow web search" and double-click it. Switch the preference to enabled.
+; Locate "Don't search the web or display web results in Search and double-click it. Switch the preference to enabled.
+; Locate "Don't search the web or display web results in Search over metered connections" and double-click it. Switch the preference to enabled.
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowSearchToUseLocation"=dword:00000000
+@=""
+"AllowCortana"=dword:00000000
+"ConnectedSearchPrivacy"=dword:00000003
+"ConnectedSearchSafeSearch"=dword:00000003
+"ConnectedSearchUseWebOverMeteredConnections"=dword:00000000
+"PreventRemoteQueries"=dword:00000001
+"DisableWebSearch"=dword:00000001
+"ConnectedSearchUseWeb"=dword:00000000
+
+; Disable Windows Media Player AutoUpdates
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\WindowsMediaPlayer]
+"DisableAutoUpdate"=dword:00000001
+
+; DisableWifi Sense
+[HKEY_LOCAL_MACHINE\Software\Microsoft\WcmSvc\wifinetworkmanager]
+"WiFiSenseCredShared"=dword:00000000
+"WiFiSenseOpen"=dword:00000000
+
+; Do not allow Elevated Rights on network paths
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System]
+"EnableLinkedConnections"=dword:1
+
+; Do not allow Online Help
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"DisableInHelp"=""
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\System]
+"DisableInHelp"=""
+
+; Make the Windows registration with Microsoft unnecessary
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion]
+"RegDone"="1"
+
+; Notepad saves window position
+[HKEY_CURRENT_USER\Software\Microsoft\Notepad]
+"fSaveWindowPositions"=dword:00000001
+
+; Open NFO files with notepad
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo]
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo\OpenWithList]
+"a"="NOTEPAD.EXE"
+"MRUList"="a"
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo\OpenWithProgids]
+"MSInfoFile"=hex(0):
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.nfo\UserChoice]
+"Progid"="Applications\\notepad.exe"
+
+; Do not show 'Games' on Start Menu
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowMyGames"=dword:00000000
+
+; Do not show 'Help and Support' on Start Menu
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_ShowHelp"=dword:00000000
+
+; Restict unsafe online help functions
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"HelpQualifiedRootDir"=hex(2):00,00
+
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\System]
+"HelpQualifiedRootDir"=hex(2):00,00
+
+;Windows Update will only download updates from Microsoft servers (No LAN and Peers)
+;dword:00000000 = off
+;dword:00000002 = lan only
+;dword:00000003 = lan and web
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config]
+"DownloadMode"=dword:00000000
+"DODownloadMode"=dword:00000000
+
+; Windows will tell you exactly what it is doing when it is shutting down or is booting
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system]
+"verbosestatus"=dword:00000001
+
+; Desktop tweaks
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoInternetOpenWith"=dword:00000001
+
+; Disable Preview Build
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\Applicability]
+"EnablePreviewBuilds"=dword:00000000
+"ThresholdFlightsDisabled"=dword:00000001
+"Ring"="Disabled"
+
+; -----
+
+;;; Turn off "File Explorer ads"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"ShowSyncProviderNotifications"=dword:0000000
+
+;;; Turn off "Start Menu suggestions"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"SystemPaneSuggestionsEnabled"=dword:0000000
+"SubscribedContent-338388Enabled"=dword:0000000
+
+;;; Turn off "Get tips, tricks and suggestions as you use Windows"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"SoftLandingEnabled"=dword:0000000
+"SubscribedContent-338389Enabled"=dword:0000000
+
+;;; Turn off "AutoPlay"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\AutoplayHandlers]
+; 0000000 = Off (Default)
+; 0000001 = On (Secure)
+"DisableAutoplay"=dword:0000001
+
+;;; Turn on "Let Windows track app launches"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Start_TrackProgs"=dword:0000000
+
+;;; Turn off "Let apps share and sync with wireless devices"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\LooselyCoupled]
+; Deny = Denied to share and sync (Secure & Default)
+; Allow = Allowed to share and sync
+"Value"="Deny"
+
+;;; Turn off "Show me the Windows welcome experience after updates and occasionally when I sign in to highlight what’s new and suggested"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"SubscribedContent-310093Enabled"=dword:0000000
+
+;;; Turn off "Tailored experiences with diagnostic data"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Privacy]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"TailoredExperiencesWithDiagnosticDataEnabled"=dword:0000000
+
+;;; Turn off (set to Never) "Feedback Frequency"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Siuf\Rules]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"NumberOfSIUFInPeriod"=dword:0000000
+"PeriodInNanoSeconds"=dword:0000000
+
+;;; Turn on (set to Warning) "SmartScreen for Microsoft Edge"
+[HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoft.microsoftedge_8wekyb3d8bbwe\MicrosoftEdge\PhishingFilter]
+; 0000000 = Off
+; 0000001 = On (Secure & Default)
+"EnabledV9"=dword:0000001
+
+;;; Turn on (set to Warning) "SmartScreen for Windows Store apps"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost]
+; 0000000 = Off
+; 0000001 = On (Secure & Default)
+"EnableWebContentEvaluation"=dword:0000001
+
+;;; Turn on override prevention "SmartScreen for Windows Store apps"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\AppHost]
+; 0000000 = Off (Default)
+; 0000001 = On (Secure)
+"PreventOverride"=dword:0000001
+
+;--
+
+;;; Turn on "File extensions for known file types"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"HideFileExt"=dword:0000000
+
+;;; Set to "My devices only" for Nearby sharing: "I can share and receive from"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CDP]
+; 0000000 = Off (Secure, Default)
+; 0000001 = My devices only
+; 0000002 = Everyone nearby
+"NearShareChannelUserAuthzPolicy"=dword:0000000
+
+;;; Set to "Off" for Shared Experiences: "I can share and receive from"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\CDP]
+; 0000000 = Off (Secure)
+; 0000001 = My devices only (Default)
+; 0000002 = Everyone nearby
+"CdpSessionUserAuthzPolicy"=dword:0000000
+
+;;; Turn off "Sync your settings: Ease of Access"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Accessibility]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Turn off "Sync your settings: Internet Explorer settings"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\BrowserSettings]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Turn off "Sync your settings: Passwords"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Credentials]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Turn off "Sync your settings: Language preferences"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Language]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Turn off "Sync your settings: Theme"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Personalization]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Turn off "Sync your settings: Other Windows settings"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\SettingSync\Groups\Windows]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Turn off "Let Cortana respond to "Hey Cortana""
+[HKEY_CURRENT_USER\Software\Microsoft\Speech_OneCore\Preferences]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"VoiceActivationOn"=dword:0000000
+
+;;; Turn on "Let Cortana listen for my commands when I press the Windows logo key + C"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"VoiceShortcut"=dword:0000000
+
+;;; Turn off "Use Cortana even when my device is locked"
+[HKEY_CURRENT_USER\Software\Microsoft\Speech_OneCore\Preferences]
+; 0000000 = Off (Secure & Default)
+; 0000001 = On
+"VoiceActivationEnableAboveLockscreen"=dword:0000000
+
+;;; Disable Clipboard History Feature
+[HKEY_CURRENT_USER\Software\Microsoft\Clipboard]
+; <deleted> = (Default)
+; 0000000 = Off (Secure)
+; 0000001 = On
+"EnableClipboardHistory"=dword:0000000
+
+;;; Disable Clipboard Cloud Sync Feature
+[HKEY_CURRENT_USER\Software\Microsoft\Clipboard]
+; <deleted> = (Default)
+; 0000000 = Off (Secure)
+; 0000001 = On
+"EnableCloudClipboard"=dword:0000000
+"CloudClipboardAutomaticUpload"=dword:0000000
+
+;;; Turn off "Automatic installation apps"
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"PreInstalledAppsEnabled"=dword:0000000
+"PreInstalledAppsEverEnabled"=dword:0000000
+"FeatureManagementEnabled"=dword:0000000
+"OemPreInstalledAppsEnabled"=dword:0000000
+"SilentInstalledAppsEnabled"=dword:0000000
+"ContentDeliveryAllowed"=dword:0000000
+
+;---
+
+;;; 2.3.1.2 (L1) Ensure 'Accounts: Block Microsoft accounts' is set to 'Users can't add or log on with Microsoft accounts'
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System]
+; <deleted> = (Default)
+; 0000000 = This policy is disabled
+; 0000001 = Users can’t add Microsoft accounts
+; 0000003 = Users can’t add or log on with Microsoft accounts (CIS)
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"NoConnectedUser"=dword:0000003
+
+;;; 2.3.4.1 (L1) Ensure 'Devices: Allowed to format and eject removable media' is set to 'Administrators and Interactive Users'
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon]
+; <deleted> = (Default)
+; 0000000 = Administrators only
+; 0000001 = Administrators and power users
+; 0000002 = Administrators and interactive users (CIS)
+"AllocateDASD"="2"
+
+;;; 18.4.8.1 (L1) Ensure 'Enable insecure guest logons' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LanmanWorkstation]
+; <deleted> = (Default)
+; 0 = Off (CIS L1)
+; 1 = On
+"AllowInsecureGuestAuth"=dword:0000000
+
+;;; 18.9.6.1 (L1) Ensure 'Allow Microsoft accounts to be optional' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System]
+; <deleted> = (Default)
+; 0 = Off
+; 1 = On (CIS L1)
+; NON-EXISTENCE DUE TO WINDOWS 10 HOME USE
+"MSAOptional"=dword:0000001
+
+;;; 18.9.8.1 (L1) Ensure 'Disallow Autoplay for non-volume devices' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Explorer]
+; <deleted> = (Default)
+; 0 = Off
+; 1 = On (CIS L1)
+; NON-EXISTENCE DUE TO WINDOWS 10 HOME USE
+"NoAutoplayfornonVolume"=dword:0000001
+
+;;; 18.9.16.1 (L1) Ensure 'Allow Telemetry' is set to 'Enabled: 0 - Security [Enterprise Only]'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\DataCollection]
+; <deleted> = (Default)
+; 0 = Security: Security data only (CIS L1)
+; 1 = Basic: Security + basic system and quality data
+; 2 = Enhanced: Basic + enhanced insights and advanced reliability data
+; 3 = Full: Enhanced + full diagnostics data
+"AllowTelemetry"=dword:0000000
+
+;;; 18.9.16.3 (L1) Ensure 'Do not show feedback notifications' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\DataCollection]
+; <deleted> = (Default)
+; 0 = Off
+; 1 = On (CIS L1)
+"DoNotShowFeedbackNotifications"=dword:0000001
+
+; disable experimental and preview builds:
+;
+; ValueName: EnableExperimentation
+; possible values:
+; decimal: 0 => Device settings only
+; decimal: 1 => Full experimentations
+;
+; ValueName: AllowBuildPreview
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds]
+"EnableExperimentation"=dword:00000000
+"AllowBuildPreview"=dword:00000000
+
+; prevent the usage of OneDrive for file storage:
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\OneDrive]
+"DisableFileSyncNGSC"=dword:00000001
+
+; disable location informations usage
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\LocationAndSensors]
+"DisableLocation"=dword:00000001
+
+; Do not answer additional data requests from microsoft in response to a windows error reporting event:
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting]
+"DontSendAdditionalData"=dword:00000001
+
+; turn off using the windows advertising id:
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo]
+"DisabledByGroupPolicy"=dword:00000001
+
+; turn off automatic connecting to open wi-fi networks:
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config]
+"AutoConnectAllowedOEM"=dword:00000000
+
+; Turn off Microsoft consumer experiences
+; possible values:
+; decimal: 1 => enabled
+; decimal: 0 => disabled
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableWindowsConsumerFeatures"=dword:00000001
+
+; DisableDefenderSamples
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Defender\SubmitSamplesConsent]
+"value"=dword:00000002
+
+; DisableHotSpotReporting
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting]
+"value"=dword:00000000
+
+; DisableLocationService
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\System\AllowLocation]
+"value"=dword:00000000
+
+;DisableMicrosoftExperimentation
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\System\AllowExperimentation]
+"value"=dword:00000000
+
+;DisableWifiSense
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots]
+"value"=dword:00000000
+
+; Disable some sort of UPnP discovery for DirectPlay
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\DirectPlayNATHelp\DPNHUPnP]
+"UPnPMode"=dword:00000002
+
+; Disable Crash Dump
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl]
+"CrashDumpEnabled"=dword:00000000
+
+; Launch Explorer to "This PC"
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"LaunchTo"=dword:0000001
+
+; Checkboxes in explorer
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"AutoCheckSelect"=dword:0000001
+
+; this pc icon on desktop
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{20D04FE0-3AEA-1069-A2D8-08002B30309D}"=dword:00000000
+
+; user files on desktop
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{59031a47-3f72-44a7-89c5-5595fe6b30ee}"=dword:00000000
+
+; network icon on desktop
+; [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+; "{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}"=dword:00000000
+
+; control panel icon on desktop
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel]
+"{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}"=dword:00000000
+
+; Explorer Show the status bar
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ShowStatusBar"=dword:00000001
+
+; Control Panel Show all items
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\ControlPanel]
+"AllItemsIconView"=dword:00000002
+"StartupPage"=dword:00000001
+
+; For the Current User
+;Disable Sticky Keys
+[HKEY_CURRENT_USER\Control Panel\Accessibility\StickyKeys]
+“Flags”=”506”
+
+;Disable Filter Keys
+[HKEY_CURRENT_USER\Control Panel\Accessibility\Keyboard Response]
+“Flags”=”122”
+
+;Disable Toggle Keys
+[HKEY_CURRENT_USER\Control Panel\Accessibility\ToggleKeys]
+“Flags”=”58”
+
+; For when no one is logged in
+;Disable Sticky Keys
+[HKEY_USERS\.DEFAULT\Control Panel\Accessibility\StickyKeys]
+“Flags”=”506”
+
+;Disable Filter Keys
+[HKEY_USERS\.DEFAULT\Control Panel\Accessibility\Keyboard Response]
+“Flags”=”122”
+
+;Disable Toggle Keys
+[HKEY_USERS\.DEFAULT\Control Panel\Accessibility\ToggleKeys]
+“Flags”=”58”
+	
+;Show details in copy dialog
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\OperationStatusManager]
+"EnthusiastMode"=dword:00000001
+
+;Num lock always on
+[HKEY_USERS\.DEFAULT\Control Panel\Keyboard]
+“InitialKeyboardIndicators”=dword:00000002
+
+[HKEY_CURRENT_USER\Control Panel\]
+“InitialKeyboardIndicators”=dword:00000002
+
+;------
+
+;;; Startup and Recovery - Debug Information: None
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\CrashControl]
+"AutoReboot"=dword:0000001						; Default: 1
+"LogEvent"=dword:0000001						; Default: 1
+"MinidumpsCount"=dword:0000001					; Default: 5
+"Overwrite"=dword:0000001						; Default: 1
+"CrashDumpEnabled"=dword:0000000				; Default: 1
+"AlwaysKeepMemoryDump"=dword:0000000			; Default: 1
+
+;;; Remote Assistance: Disable
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Remote Assistance]
+"CreateEncryptedOnlyTickets"=dword:0000001		; Default: 0
+"fAllowFullControl"=dword:0000001				; Default: 1
+"fAllowToGetHelp"=dword:0000000					; Default: 1
+"fEnableChatControl"=dword:0000001				; Default: 1
+"MaxTicketExpiry"=dword:0000001					; Default: 1
+"MaxTicketExpiryUnits"=dword:0000001			; Default: 1
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server] 
+"fDenyTSConnections"=dword:00000001
+
+;;; Find my device: Off
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Settings\FindMyDevice]
+; 0000000 = Off (Default)
+; 0000001 = On (Secure)
+"LocationSyncEnabled"=dword:0000000
+
+;;; App Advertising ID: Off
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"Enabled"=dword:0000000
+
+;;; Project to this PC: Off
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MiracastReceiver]
+"NetworkQualificationEnabled"=dword:0000000		; Default: 0000001
+"ConsentToast"=dword:0000002					; Default: 0000000
+"Primary Authorization Method"=dword:0000003	; Default: 0000002
+"Secondary Authorization Method"=dword:0000000	; Default: 0000003
+"Tertiary Authorization Method"=dword:0000000	; Default: 0000000
+"EnabledOnACOnly"=dword:0000000					; Default: 0000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PlayToReceiver]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"AutoEnabled"=dword:0000000
+
+;;; Hotspots 2.0 networks: Off
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WlanSvc\AnqpCache]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"OsuRegistrationStatus"=dword:0000000
+
+;;; SmartScreen Apps and Files: Warn
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+; Block = Block execution/opening (Secure)
+; Warn = Warn before execution/opening (Default)
+; Off = Turn off
+"SmartScreenEnabled"="Warn"
+
+;;; LMHOSTS lookup: Off
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NetBT\Parameters]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"EnableLMHOSTS"=dword:0000000
+
+;;; Windows Error Reporting: Off
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting]
+; 0000000 = Off (Default)
+; 0000001 = On (Secure)
+"Disabled"=dword:0000001
+
+;;; Disable Domain Name Devolution
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"UseDomainNameDevolution"=dword:0000000
+
+;;; Disable Fast Restart(Hibernate/Sleep instead of shutting down) to prevent disk encryption errors with third party tools
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Power]
+; 0000000 = Off (Secure)
+; 0000001 = On (Default)
+"HiberbootEnabled"=dword:0000000
+
+;;; Disable Clipboard History capability
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+; <deleted> = (Default)
+; 0000000 = Off (Secure)
+; 0000001 = On
+"AllowClipboardHistory"=dword:0000000
+
+;;; (CIS-1709): 18.8.26.1 (L1) Ensure 'Untrusted Font Blocking' is set to 'Enabled: Block untrusted fonts and log events'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\MitigationOptions]
+; <deleted> = (Default)
+; 00,10,a5,d4,e8,00,00,00 (1000000000000) = Block untrusted fonts and log events (CIS)
+; 00,20,4a,a9,d1,01,00,00 (2000000000000) = Do not block untrusted fonts
+; 00,30,ef,7d,ba,02,00,00 (3000000000000) = Log events without blocking untrusted fonts
+"MitigationOptions_FontBocking"=hex(b):00,10,a5,d4,e8,00,00,00
+
+;;; 18.1.1.1 (L1) Ensure 'Prevent enabling lock screen camera' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Personalization]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"NoLockScreenCamera"=dword:0000001
+
+;;; 18.1.3 (L2) Ensure 'Allow Online Tips' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+"AllowOnlineTips"=dword:0000000
+
+;;; 18.3.3 (L1) Ensure 'Configure SMB v1 server' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters]
+; <deleted> = Default
+; 0000000 = Off (CIS)
+; 0000001 = On
+"SMB1"=dword:0000000
+
+;;; 18.3.4 (L1) Ensure 'Enable Structured Exception Handling Overwrite Protection (SEHOP)' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\kernel]
+; <deleted> = Default
+; 0000000 = Off (CIS)
+; 0000001 = On
+"DisableExceptionChainValidation"=dword:0000000
+
+;;; 18.4.2 (L1) Ensure 'MSS: (DisableIPSourceRouting IPv6) IP source routing protection level (protects against packet spoofing)' is set to 'Enabled: Highest protection, source routing is completely disabled'
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip6\Parameters]
+; <deleted> = (Default)
+; 0000000 = No additional protection, source routed packets are allowed
+; 0000001 = Medium, source routed packets ignored when IP forwarding is enabled
+; 0000002 = Highest protection, source routing is completely disabled (CIS)
+"DisableIPSourceRouting"=dword:0000002
+
+;;; 18.4.3 (L1) Ensure 'MSS: (DisableIPSourceRouting) IP source routing protection level (protects against packet spoofing)' is set to 'Enabled: Highest protection, source routing is completely disabled'
+[HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters]
+; <deleted> = (Default)
+; 0000000 = No additional protection, source routed packets are allowed
+; 0000001 = Medium, source routed packets ignored when IP forwarding is enabled
+; 0000002 = Highest protection, source routing is completely disabled (CIS)
+"DisableIPSourceRouting"=dword:0000002
+
+;;; 18.4.9 (L1) Ensure 'MSS: (SafeDllSearchMode) Enable Safe DLL search mode (recommended)' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (Default / CIS)
+"SafeDllSearchMode"=dword:0000001
+
+;;; 18.5.5.1 (L2) Ensure 'Enable Font Providers' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+"EnableFontProviders"=dword:0000000
+
+;;; 18.5.10.2 (L2) Ensure 'Turn off Microsoft Peer-to-Peer Networking Services' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Peernet]
+; 0000000 = Off (Default)
+; 0000001 = On (CIS)
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"Disabled"=dword:0000001
+
+;;; 18.5.19.2.1 (L2) Disable IPv6 (Ensure TCPIP6 Parameter 'DisabledComponents' is set to '0xff (255)')
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\TCPIP6\Parameters]
+; <deleted> = (Default)
+; 0000000 = Enable all IPv6 components
+; 0000xff = Disable all IPv6 components (CIS)
+; 0000002 = Disable 6to4
+; 0000004 = Disable ISATAP
+; 0000008 = Disable Teredo
+; 000000a = Disable Teredo and 6to4
+; 0000001 = Disable all tunnel interfaces
+; 0000010 = Disable all LAN and PPP interfaces
+; 0000011 = Disable all LAN, PPP and tunnel interfaces
+; 0000020 = Prefer IPv4 over IPv6
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"DisabledComponents"=dword:0000xff
+
+;;; 18.8.22.1.3 (L2) Ensure 'Turn off handwriting personalization data sharing' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\TabletPC]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"PreventHandwritingDataSharing"=dword:0000001
+
+;;; 18.8.22.1.4 (L2) Ensure 'Turn off handwriting recognition error reporting' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\HandwritingErrorReports]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"PreventHandwritingErrorReports"=dword:0000001
+
+;;; 18.8.22.1.10 (L2) Ensure 'Turn off the "Order Prints" picture task' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"NoOnlinePrintsWizard"=dword:0000001
+
+;;; 18.8.22.1.11 (L2) Ensure 'Turn off the "Publish to Web" task for files and folders' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"NoPublishingWizard"=dword:0000001
+
+;;; 18.8.22.1.13 (L2) Ensure 'Turn off Windows Customer Experience Improvement Program' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SQMClient\Windows]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+"CEIPEnable"=dword:0000000
+
+;;; 18.8.22.1.14 (L2) Ensure 'Turn off Windows Error Reporting' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Error Reporting]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"Disabled"=dword:0000001
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Windows Error Reporting]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+"DoReport"=dword:0000000
+
+;;; 18.8.30.1 (L2) Ensure 'Allow upload of User Activities' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"UploadUserActivities"=dword:0000000
+
+;;; 18.8.35.1 (L1) Ensure 'Configure Offer Remote Assistance' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\Software\policies\Microsoft\Windows NT\Terminal Services]
+; <deleted> = (Default)
+; 0000000 = Off (Default / CIS)
+; 0000001 = On
+"fAllowUnsolicited"=dword:0000000
+
+;;; 18.9.10.1.1 (L1) Ensure 'Configure enhanced anti-spoofing' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Biometrics\FacialFeatures]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"EnhancedAntiSpoofing"=dword:0000001
+
+;;; 18.9.30.2 (L1) Ensure 'Turn off Data Execution Prevention for Explorer' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Explorer]
+; <deleted> = (Default)
+; 0000000 = Off (Default / CIS)
+; 0000001 = On
+"NoDataExecutionPrevention"=dword:0000000
+
+;;; 18.9.45.2 (L2) Ensure 'Allow Adobe Flash' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Addons]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+"FlashPlayerEnabled"=dword:0000000
+
+;;; 18.9.45.10 (L2) Ensure 'Prevent using Localhost IP address for WebRTC' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\Main]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"HideLocalHostIP"=dword:0000001
+
+;;; 18.9.58.3.2.1 (L2) Ensure 'Allow users to connect remotely by using Remote Desktop Services' is set to 'Disabled'
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server]
+; 0000000 = Off (CIS)
+; 0000001 = On (Default)
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"fDenyTSConnections"=dword:0000001
+
+;;; 18.9.58.3.3.1 (L2) Ensure 'Do not allow COM port redirection' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"fDisableCcm"=dword:0000001
+
+;;; 18.9.58.3.3.2 (L1) Ensure 'Do not allow drive redirection' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"fDisableCdm"=dword:0000001
+
+;;; 18.9.58.3.3.3 (L2) Ensure 'Do not allow LPT port redirection' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"fDisableLPT"=dword:0000001
+
+;;; 18.9.58.3.3.4 (L2) Ensure 'Do not allow supported Plug and Play device redirection' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"fDisablePNPRedir"=dword:0000001
+
+;;; 18.9.60.2 (L2) Ensure 'Allow Cloud Search' is set to 'Enabled: Disable Cloud Search'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+; <deleted> = (Default)
+; 0000000 = Off (CIS)
+; 0000001 = On
+; NON-COMPLIANCE TO NOT DISRUPT COMMON HOME FEATURES
+"AllowCloudSearch"=dword:0000000
+
+;;; 18.9.80.2.2 (L1) Ensure 'Prevent bypassing Windows Defender SmartScreen prompts for files' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"PreventOverrideAppRepUnknown"=dword:0000001
+
+;;; 18.9.80.2.3 (L1) Ensure 'Prevent bypassing Windows Defender SmartScreen prompts for sites' is set to 'Enabled'
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter]
+; <deleted> = (Default)
+; 0000000 = Off
+; 0000001 = On (CIS)
+"PreventOverride"=dword:0000001
+
